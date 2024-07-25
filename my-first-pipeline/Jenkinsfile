@@ -9,8 +9,6 @@ pipeline {
         sh '''
         mvn --version
         mvn clean package
-        javac HelloWorld.java
-        java HelloWorld
         '''
       }
     }
