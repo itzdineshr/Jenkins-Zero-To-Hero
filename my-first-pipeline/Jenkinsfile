@@ -9,7 +9,7 @@ pipeline {
         sh '''
         mvn --version
         mvn clean package
-        java HelloWorld
+        echo 'Hello'
         '''
       }
     }
