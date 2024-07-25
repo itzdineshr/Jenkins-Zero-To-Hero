@@ -1,14 +1,12 @@
 pipeline {
-  agent none
+  agent any
   stages {
-    stage('Test') {
-      agent {
-        docker { image 'maven:3.8.1-adoptopenjdk-11' }
-      }
+    stage('Build') {
+      
       steps {
         sh '''
-        mvn --version
-        mvn clean package
+        javac HelloWorld.java
+        java HelloWorld
         '''
       }
     }
