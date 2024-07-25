@@ -7,7 +7,7 @@ pipeline {
       }
       steps {
         sh '''
-        node --version
+        mvn --version
         mvn clean package
         java HelloWorld
         '''
