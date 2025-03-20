@@ -68,7 +68,7 @@ pipeline{
                     sh '''
                     git config user.name = "Dinesh R"
                     git config user.email = "itzdineshr@gmail.com"
-                    sed -i "s|tag:.*|tag: "${BUILD_NUMBER}"|g" helm/spring-boot-app/values.yaml
+                    sed -i "s|tag:.*|tag: "${BUILD_NUMBER}"|g" java-maven-sonar-argocd-helm-k8s/helm/spring-boot-app/values.yaml
                     git add java-maven-sonar-argocd-helm-k8s/helm/spring-boot-app/values.yaml
                     git commit -m 'Updated Helm Value file with Image Tag ${BUILD_NUMBER}'
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
