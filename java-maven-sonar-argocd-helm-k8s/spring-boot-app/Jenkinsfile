@@ -61,7 +61,6 @@ pipeline{
             environment{
                 GIT_REPO_NAME = "https://github.com/itzdineshr/Jenkins-Zero-To-Hero.git"
                 GIT_USER_NAME = "itzdineshr"
-                BUILD_NUMBER = ${BUILD_NUMBER}
             }
             steps{
                 withCredentials([string(credentialsId:'github_jenkins',variable:'GITHUB_TOKEN')])
@@ -69,6 +68,8 @@ pipeline{
                     sh '''
                     git config user.name = "Dinesh R"
                     git config user.email = "itzdineshr@gmail.com"
+                    BUILD_NUMBER = ${BUILD_NUMBER}
+                    echo hello
                     sed -i "s|tag:.*|tag: "${BUILD_NUMBER}"|g" helm/spring-boot-app/values.yaml
                     git add java-maven-sonar-argocd-helm-k8s/helm/spring-boot-app/values.yaml
                     git commit -m 'Updated Helm Value file with Image Tag ${BUILD_NUMBER}'
